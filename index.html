@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prototype Website</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- Include the CSS code that defines the animation -->
+  <style>
+    @keyframes scroll {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+  <body>
+    <section class="header">
+      <nav>
+        <div class="nav-links">
+          <a href="Login Page.html">LOGIN</a>
+        </div>
+
+        <div class="nav-links">
+          <a href="Announcement Page.html">CREATE ANNOUNCEMENT</a>
+        </div>
+      </nav>
+    </section>
+
+    <p>Message:</p>
+    <div id="message-container">
+      <marquee>
+        <p id="announcements"></p>
+      </marquee>
+    </div>
+
+    <script>
+      const message = localStorage.getItem("message");
+      const messageContainer = document.querySelector("#announcements");
+      messageContainer.textContent = message;
+    </script>
+    <!-- <div class="text-box">
+      <p>Announcements</p>
+      <div class="report"></div>
+    </div> -->
+
+    <!-- Create a textarea to receive the text -->
+  </body>
+</html>

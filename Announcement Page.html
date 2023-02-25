@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="announcement.css">
+    <!-- <script src="announcement.js"></script> -->
+</head>
+<body>
+    <nav>
+        <a href="index.html"><img src="images/logo.jpeg"></a>
+</nav>
+
+<!-- <form id="sendForm">
+    <label for="message">Enter message:</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+    <button type="submit">Send</button>
+</form> -->
+
+<form>
+    <label for="message">Enter Message:</label>
+    <input type="text" id="message" name="message">
+    <button type="submit" id="submit-button">Submit</button>
+  </form>
+  
+  <script>
+    const form = document.querySelector('form');
+    const submitButton = document.querySelector('#submit-button');
+  
+    submitButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      const message = document.querySelector('#message').value;
+      localStorage.setItem('message', message);
+    });
+  </script>
+
+</body>
+</html>
