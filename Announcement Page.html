@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Announcement Page</title>
     <link rel="stylesheet" href="announcement.css">
-    <!-- <script src="announcement.js"></script> -->
+    
 </head>
 <body>
     <nav>
         <a href="index.html"><img src="images/logo.jpeg"></a>
 </nav>
 
-<!-- <form id="sendForm">
-    <label for="message">Enter message:</label>
-    <textarea id="message" name="message" rows="4"></textarea>
-    <button type="submit">Send</button>
-</form> -->
 
-<form>
+<div>
+  <form>
     <label for="message">Enter Message:</label>
     <input type="text" id="message" name="message">
     <button type="submit" id="submit-button">Submit</button>
-  </form>
+    <br><br>
+
+   
+      <label for="file-input">Select the media</label>
+      <input type="file" id="my-file-input" name="image" accept="image/*">
+      <button type="submit" id="my-submit-button">Upload</button>
+    
+   </form>
+</div>
   
   <script>
     const form = document.querySelector('form');
@@ -33,7 +37,32 @@
       event.preventDefault();
       const message = document.querySelector('#message').value;
       localStorage.setItem('message', message);
-    });
+      console.log(localStorage.getItem("message"));
+    })
+
+const fileInput = document.getElementById('my-file-input');
+const submiButton = document.getElementById('my-submit-button');
+
+submiButton.addEventListener('click', (event) => {
+event.preventDefault();
+
+const file = fileInput.files[0]
+const reader = new FileReader();
+
+reader.onload = () => {
+const dataUrl = reader.result;
+localStorage.setItem('myImage', dataUrl);
+}
+reader.readAsDataURL(file);
+});
+
+function clearLocalStorageOnReload() {
+    window.onbeforeunload = function() {
+    localStorage.clear();
+  }
+}
+clearLocalStorageOnReload()
+
   </script>
 
 </body>

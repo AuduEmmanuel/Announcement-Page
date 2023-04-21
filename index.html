@@ -14,47 +14,37 @@
       rel="stylesheet"
     />
   </head>
-  <!-- Include the CSS code that defines the animation -->
-  <style>
-    @keyframes scroll {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-  </style>
+ 
   <body>
-    <section class="header">
-      <nav>
-        <div class="nav-links">
-          <a href="Login Page.html">LOGIN</a>
-        </div>
 
-        <!-- <div class="nav-links">
-          <a href="Announcement Page.html">CREATE ANNOUNCEMENT</a>
-        </div> -->
-      </nav>
-    </section>
-
-    <p>Message:</p>
     <div id="message-container">
-      <marquee>
-        <p id="announcements"></p>
-      </marquee>
+      
+      <h1 id="announcements"></h1>
+        <div id="my-image-container">
+          
+        </div>
+      
     </div>
 
-    <script>
-      const message = localStorage.getItem("message");
-      const messageContainer = document.querySelector("#announcements");
-      messageContainer.textContent = message;
-    </script>
-    <!-- <div class="text-box">
-      <p>Announcements</p>
-      <div class="report"></div>
-    </div> -->
 
-    <!-- Create a textarea to receive the text -->
+    <script>
+    
+const message = localStorage.getItem("message");
+const messageContainer = document.querySelector("#announcements");
+messageContainer.textContent = message;
+
+      const imageContainer = document.getElementById('my-image-container');
+            const dataUrl = localStorage.getItem('myImage');
+
+            if (dataUrl) {
+                const img = document.createElement('img');
+                img.src = dataUrl;
+                img.height=600;
+                img.width=600;
+                imageContainer.appendChild(img);
+            }
+    
+    </script>
+
   </body>
 </html>
